@@ -20,7 +20,7 @@
   },
   "scripts": {
     "compile": "babel -c -d ./lib ./src/",
-    "prepublish": "npm run compile && npm run-script build:js",
+    "prepublish": "npm run compile",
     "postpublish": "rm -r ./lib",
     "build:js": "webpack && webpack --config webpack.config.min.js",
     "watch:js": "webpack --progress --colors --watch"
