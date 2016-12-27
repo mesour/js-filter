@@ -29,6 +29,15 @@
     "filter"
   ],
   "author": "Matouš Němec (http://mesour.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesour/js-filter"
+  },
+  "bugs": {
+    "url": "https://github.com/mesour/js-filter/issues"
+  },
+  "homepage": "https://github.com/mesour/js-filter",
   "dependencies": {
     "js.cookie": "0.0.4",
     "mesour-core": "^0.1.0",
