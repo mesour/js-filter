@@ -298,8 +298,6 @@ export default class DropDown
 
 					let isMonthOpened = checkersInfo[monthName] ? true : false;
 
-					console.log(Translator.DICTIONARY);
-
 					let month_li = jQuery('<li>');
 					month_li.append('<span class="' + this.getFilter().getIconClass(
 							isMonthOpened ? Icons.ICON_MINUS : Icons.ICON_PLUS

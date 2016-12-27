@@ -52,16 +52,15 @@ export default class CustomFilter
 			input.closest('.input-group').find('[data-icon="calendar"]').addClass(this.getDropDown().getFilter().getIconClass(Icons.ICON_CALENDAR));
 			input.attr('data-date-format', this.getDropDown().getFilter().getJsDateFormat());
 			if (value) {
-				let _val = firstValue;
-				if (typeof _val === 'string' && _val.split('-').length !== 3) {
-					input.val(_val);
+				if (typeof value === 'string' && value.split('-').length !== 3) {
+					input.val(value);
 					input.removeAttr('data-date-defaultDate');
 				} else {
-					if (typeof _val === 'string' && _val.split('-').length === 3) {
-						_val = [_val];
+					if (typeof value === 'string' && value.split('-').length === 3) {
+						value = [value];
 					}
-					input.val(_val[0]);
-					input.attr('data-date-defaultDate', _val[0]);
+					input.val(value[0]);
+					input.attr('data-date-defaultDate', value[0]);
 				}
 			} else {
 				input.val(null);
