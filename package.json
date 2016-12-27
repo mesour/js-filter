@@ -1,6 +1,6 @@
 {
   "name": "mesour-filter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Mesour filter component",
   "main": "index.js",
   "devDependencies": {
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "compile": "babel -c -d ./lib ./src/",
-    "prepublish": "npm run compile",
+    "prepublish": "npm run compile && npm run-script build:js",
     "postpublish": "rm -r ./lib",
     "build:js": "webpack && webpack --config webpack.config.min.js",
     "watch:js": "webpack --progress --colors --watch"

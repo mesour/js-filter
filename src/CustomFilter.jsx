@@ -1,3 +1,5 @@
+import Icons from './Utils/Icons';
+
 export default class CustomFilter
 {
 
@@ -20,17 +22,13 @@ export default class CustomFilter
 		el = this.getModalElement().find('.save-custom-filter');
 		let eventName = 'click.m_-custom-filter-' + _this.getDropDown().getName();
 
-		console.log(el);
 		el.off(eventName);
 		el.on(eventName, function (e) {
-			console.log(_this.getModalElement().find('[data-name]').val(), _this.getDropDown().getName());
 			if (_this.getModalElement().find('[data-name]').val() !== _this.getDropDown().getName()) {
 				return;
 			}
 			_this.handleSaveButton($(this), e);
 		});
-
-		//this.bindSaveButton();
 	}
 
 	handleOpenButton($this, e)
@@ -51,6 +49,8 @@ export default class CustomFilter
 		for (let i = 0; i < inputValues.length; i++) {
 			let value = inputValues[i],
 				input = this.getModalElement().find('.filter-value-' + (i + 1));
+			input.closest('.input-group').find('[data-icon="calendar"]').addClass(this.getDropDown().getFilter().getIconClass(Icons.ICON_CALENDAR));
+			input.attr('data-date-format', this.getDropDown().getFilter().getJsDateFormat());
 			if (value) {
 				let _val = firstValue;
 				if (typeof _val === 'string' && _val.split('-').length !== 3) {
@@ -136,7 +136,7 @@ export default class CustomFilter
 				val2: this.getModalElement().find('.filter-value-2').val(),
 				operator: this.getModalElement().find('input[name="operator"]:checked').val()
 			};
-		console.log(internalValues);
+
 		if (internalValues.how1.length === 0) {
 			alert('Please select some value in first select.');
 			this.getModalElement().find('.filter-how-1').focus();
@@ -158,50 +158,6 @@ export default class CustomFilter
 		this.getDropDown().update();
 		this.getDropDown().save();
 		this.getDropDown().getFilter().apply();
-	}
-
-	bindSaveButton()
-	{
-		let _this = this,
-			el = this.getModalElement().find('.save-custom-filter');
-
-		el.off('click.m_-custom-filter');
-		el.on('click.m_-custom-filter', function () {
-			if (_this.getModalElement().find('[data-name]').val() !== _this.getDropDown().getName()) {
-				return;
-			}
-
-			let modalName = _this.getModalElement().attr('data-mesour-modal'),
-				internalValues = {
-					how1: _this.getModalElement().find('.filter-how-1').val(),
-					how2: _this.getModalElement().find('.filter-how-2').val(),
-					val1: _this.getModalElement().find('.filter-value-1').val(),
-					val2: _this.getModalElement().find('.filter-value-2').val(),
-					operator: _this.getModalElement().find('input[name="operator"]:checked').val()
-				};
-			console.log(internalValues);
-			if (internalValues.how1.length === 0) {
-				alert('Please select some value in first select.');
-				_this.getModalElement().find('.filter-how-1').focus();
-				return;
-			}
-			if (internalValues.val1.length === 0) {
-				alert('Please insert some value for first text input.');
-				_this.getModalElement().find('.filter-value-1').focus();
-				return;
-			}
-			if (internalValues.how2.length !== 0 && internalValues.val2.length === 0) {
-				alert('Please insert some value for second input.');
-				_this.getModalElement().find('.filter-value-2').focus();
-				return;
-			}
-			_this.getDropDown().setValues(internalValues, 'custom');
-			_this.getDropDown().setValues(_this.getDropDown().getType() !== 'date' ? 'text' : 'date', 'type');
-			window.mesour.modal.hide(modalName);
-			_this.getDropDown().update();
-			_this.getDropDown().save();
-			_this.getDropDown().getFilter().apply();
-		});
 	}
 
 	getDropDown()

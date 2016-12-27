@@ -253,7 +253,7 @@ export default class Checkers
 	closeSubUl($el)
 	{
 		let val = Cookie.get(this.getDropDown().getCookieName()),
-			current = val ? jQuery.parseJSON(val) : {};
+			current = typeof val === 'string' ? jQuery.parseJSON(val) : {};
 
 		if (typeof $el === 'object') {
 			delete current[$el.attr('data-name')];
@@ -274,7 +274,7 @@ export default class Checkers
 	openSubUl($el)
 	{
 		let val = Cookie.get(this.getDropDown().getCookieName()),
-			current = val ? jQuery.parseJSON(val) : {};
+			current = typeof val === 'string' ? jQuery.parseJSON(val) : {};
 
 		current[$el.attr('data-name')] = 1;
 		Cookie.set(this.getDropDown().getCookieName(), JSON.stringify(current));

@@ -64,6 +64,11 @@ export default class Filter
 		return this.icons.getIconClass(iconType);
 	}
 
+	getJsDateFormat()
+	{
+		return this.jsDateFormat;
+	}
+
 	getIcons()
 	{
 		return this.icons;

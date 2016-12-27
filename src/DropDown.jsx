@@ -262,7 +262,7 @@ export default class DropDown
 			}
 
 			let val = Cookie.get(this.cookieName),
-				checkersInfo = val ? jQuery.parseJSON(val) : {};
+				checkersInfo = typeof val === 'string' ? jQuery.parseJSON(val) : {};
 
 			for (let a in years) {
 				if (!years.hasOwnProperty(a)) {
@@ -298,6 +298,8 @@ export default class DropDown
 
 					let isMonthOpened = checkersInfo[monthName] ? true : false;
 
+					console.log(Translator.DICTIONARY);
+
 					let month_li = jQuery('<li>');
 					month_li.append('<span class="' + this.getFilter().getIconClass(
 							isMonthOpened ? Icons.ICON_MINUS : Icons.ICON_PLUS
@@ -305,7 +307,7 @@ export default class DropDown
 					month_li.append('&nbsp;');
 					month_li.append('<input type="checkbox" class="checker">');
 					month_li.append('&nbsp;');
-					month_li.append('<label>' + Translator.translateMonth[month[b]] + '</label>');
+					month_li.append('<label>' + Translator.translateMonth(month[b]) + '</label>');
 					month_ul.append(month_li);
 					let days_ul = jQuery('<ul class="toggled-sub-ul">');
 					month_li.append(days_ul);

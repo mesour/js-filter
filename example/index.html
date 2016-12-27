@@ -70,9 +70,9 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title">Custom filter</h4>
-						</div>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">Custom filter</h4></div>
 						<div class="modal-body" mesour-modal-body="true" data-ajax-loading="false" data-is-cached="false">
 							<form class="form-inline" novalidate="">
 								<p>Show rows where:</p>
@@ -90,19 +90,52 @@
 										<option value="not_start_with">Not starts with</option>
 										<option value="end_with">Ends with</option>
 										<option value="not_end_with">Not ends with</option>
-										<option value="equal">Contains</option> <option value="not_equal">Not contains</option>
+										<option value="equal">Contains</option>
+										<option value="not_equal">Not contains</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<label class="sr-only">Value</label>
 									<div class="input-group date filter-datepicker1">
-										<input type="text" class="form-control filter-value-1" data-date-format="YYYY-MM-DD" placeholder="Value"> <span class="input-group-addon" style="display: none;"> <span class="fa fa-calendar glyphicon glyphicon-calendar"></span> </span> </div> </div> <br> <div class="form-group grid-operators"> <input type="radio" name="operator" class="filter-operator-and" value="and" checked="checked"> <label>and</label> <input type="radio" name="operator" class="filter-operator-or" value="or"> <label>or</label> </div> <br> <div class="form-group"> <label class="sr-only"></label> <select class="form-control filter-how-2"> <option></option> <option value="equal_to">Equal to</option> <option value="not_equal_to">Not equal to</option> <option value="bigger">Is greater than</option> <option value="not_bigger">Is no greater than</option> <option value="smaller">Is smaller than</option> <option value="not_smaller">Is no smaller than</option> <option value="start_with">Starts with</option> <option value="not_start_with">Not starts with</option> <option value="end_with">Ends with</option> <option value="not_end_with">Not ends with</option> <option value="equal">Contains</option> <option value="not_equal">Not contains</option> </select> </div> <div class="form-group"> <label class="sr-only">Value</label> <div class="input-group date filter-datepicker2"> <input type="text" class="form-control filter-value-2" data-date-format="YYYY-MM-DD" placeholder="Value"> <span class="input-group-addon" style="display: none;"> <span class="fa fa-calendar glyphicon glyphicon-calendar"></span> </span> </div> </div> </form>
+										<input type="text" class="form-control filter-value-1" data-date-format="" placeholder="Value">
+										<span class="input-group-addon" style="display: none;"> <span data-icon="calendar"></span> </span>
+									</div>
+								</div>
+								<br>
+								<div class="form-group grid-operators">
+									<input type="radio" name="operator" class="filter-operator-and" value="and" checked="checked">
+									<label>and</label>
+									<input type="radio" name="operator" class="filter-operator-or" value="or">
+									<label>or</label></div>
+								<br>
+								<div class="form-group"><label class="sr-only"></label>
+									<select class="form-control filter-how-2">
+										<option></option>
+										<option value="equal_to">Equal to</option>
+										<option value="not_equal_to">Not equal to</option>
+										<option value="bigger">Is greater than</option>
+										<option value="not_bigger">Is no greater than</option>
+										<option value="smaller">Is smaller than</option>
+										<option value="not_smaller">Is no smaller than</option>
+										<option value="start_with">Starts with</option>
+										<option value="not_start_with">Not starts with</option>
+										<option value="end_with">Ends with</option>
+										<option value="not_end_with">Not ends with</option>
+										<option value="equal">Contains</option>
+										<option value="not_equal">Not contains</option>
+									</select></div>
+								<div class="form-group"><label class="sr-only">Value</label>
+									<div class="input-group date filter-datepicker2">
+										<input type="text" class="form-control filter-value-2" data-date-format="" placeholder="Value">
+										<span class="input-group-addon" style="display: none;"> <span data-icon="calendar"></span> </span>
+									</div>
+								</div>
+								<input type="hidden" data-name="" value="">
+							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary btn-sm save-custom-filter">Ok</button>
 							<button class="btn btn-default" role="button" data-dismiss="modal">Close</button>
-						</div>
-						<input type="hidden" data-name="" value="">
+							<a class="btn btn-primary save-custom-filter" role="button">OK</a></div>
 					</div>
 				</div>
 			</div>
