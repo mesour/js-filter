@@ -1,0 +1,196 @@
+/**
+ * Mesour Filter Component - mesour.filter.css
+ *
+ * @author Matous Nemec (http://mesour.com)
+ */
+.bootstrap-datetimepicker-widget {
+  z-index: 5000;
+}
+
+.dropdown.mesour-filter-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+  .dropdown-menu > .dropdown-submenu > span > button {
+    display: none;
+  }
+}
+
+.mesour-filter-dropdown {
+  .box-inner {
+    margin-left: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-right: none;
+    max-height: 200px;
+    overflow: auto;
+    overflow-x: hidden;
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+      width: 305px;
+      li {
+        padding-left: 10px;
+        line-height: 10px;
+      }
+    }
+    li {
+      &.all-select-li {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 3px;
+      }
+      &.all-select-searched-li {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 3px;
+        display: none;
+      }
+      &.li-checked > label {
+        font-weight: bold;
+      }
+    }
+    label {
+      font-weight: normal;
+      font-size: 12px;
+      &.active-one {
+        font-weight: bold;
+      }
+    }
+    input {
+      position: relative;
+      top: 3px;
+    }
+  }
+  .search {
+    margin-bottom: 10px;
+    margin-left: 19px;
+  }
+  .search-input {
+    top: 0;
+    border-radius: 0;
+    right: -1px;
+    border-right: none;
+  }
+  .with-buttons {
+    height: 33px;
+    position: relative;
+  }
+  .buttons {
+    position: absolute;
+    right: 10px;
+  }
+  .dropdown-submenu button {
+    margin-right: 5px;
+    > [data-filter-icon] {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      width: 10px;
+    }
+  }
+}
+
+.dropdown.mesour-filter-dropdown .dropdown-menu > li > span {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  a {
+    color: #000;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &:hover, &:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+  }
+}
+
+.mesour-filter-modal .modal-dialog {
+  .filter-value-1, .filter-value-2 {
+    z-index: 0;
+  }
+}
+
+.dropdown.mesour-filter-dropdown {
+  .close-all {
+    display: none;
+    a {
+      font-size: 11px;
+    }
+  }
+  .toggle-sub-ul {
+    color: #555;
+    cursor: pointer;
+    &:hover, &.list-opened {
+      color: #000;
+      cursor: pointer;
+    }
+    &:hover {
+      border-color: #aaa;
+    }
+  }
+  .toggled-sub-ul {
+    display: none;
+  }
+}
+
+.input-group.without-datepicker .form-control:first-child {
+  border-radius: 4px;
+}
+
+/* bootstrap dropdown submenu */
+
+.mesour-filter-dropdown .dropdown-submenu {
+  position: relative;
+  > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+  }
+  &:hover {
+    > .dropdown-menu {
+      display: block;
+    }
+    > {
+      a:after, span:after {
+        border-left-color: #000;
+      }
+    }
+  }
+  > {
+    .dropdown-menu .dropdown-menu {
+      margin-top: -7px;
+    }
+    a:after, span:after {
+      display: block;
+      content: " ";
+      float: right;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 5px 0 5px 5px;
+      border-left-color: #ccc;
+      margin-top: 5px;
+      margin-right: -10px;
+    }
+  }
+  &.pull-left {
+    float: none !important;
+    > .dropdown-menu {
+      left: -169px;
+      margin-left: 10px;
+      -webkit-border-radius: 6px 0 6px 6px;
+      -moz-border-radius: 6px 0 6px 6px;
+      border-radius: 6px 0 6px 6px;
+    }
+  }
+}
