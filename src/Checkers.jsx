@@ -44,14 +44,14 @@ export default class Checkers
 		this.allCheckedCheckbox.on('change.data-grid', function(event) {
 			Checkers.allCheckboxCallback.apply(this, [event])
 			_this.getDropDown().save();
-			//_this.getDropDown().getFilter().apply();
+			_this.getDropDown().getFilter().apply();
 		});
 
 		this.allSearchedCheckedCheckbox.off('change.data-grid');
 		this.allSearchedCheckedCheckbox.on('change.data-grid', function(event) {
 			Checkers.allCheckboxCallback.apply(this, [event])
 			_this.getDropDown().save();
-			//_this.getDropDown().getFilter().apply();
+			_this.getDropDown().getFilter().apply();
 		});
 	}
 
