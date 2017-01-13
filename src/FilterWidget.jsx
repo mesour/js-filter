@@ -14,7 +14,7 @@ export default class FilterWidget
 		return this.filters[name];
 	}
 
-	ready()
+	live()
 	{
 		let _this = this;
 		jQuery('[data-mesour-filter]').each(function () {
