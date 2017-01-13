@@ -1,6 +1,6 @@
 {
   "name": "mesour-filter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Mesour filter component",
   "main": "index.js",
   "devDependencies": {

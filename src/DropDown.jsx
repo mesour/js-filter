@@ -170,10 +170,18 @@ export default class DropDown
 				if (!this.referenceData.hasOwnProperty(x)) {
 					continue;
 				}
-				let fixedVariable = this.fixVariable(this.referenceData[x]);
+				let text = this.referenceData[x],
+					id;
+				if (typeof text === 'object') {
+					let obj = text;
+					text = obj.text;
+					id = obj.id;
+				}
+
+				let fixedVariable = this.fixVariable(text);
 				values[fixedVariable] = {
-					val: this.referenceSetting === Constants.PREDEFINED_KEY ? x : fixedVariable,
-					translated: this.translateVariable(this.referenceData[x]),
+					val: id || (this.referenceSetting === Constants.PREDEFINED_KEY ? x : fixedVariable),
+					translated: id ? text : this.translateVariable(text),
 					keys: [0]
 				}
 			}
@@ -198,13 +206,14 @@ export default class DropDown
 		if (!this.type) {
 			let ul = this.element.find('.box-inner').find('ul');
 			for (let y in values) {
-				if (!values[y].val && Number(values[y].val) !== 0) continue;
+				let valueItem = values[y];
+				if (!valueItem.val && Number(valueItem.val) !== 0) continue;
 
 				let li = jQuery('<li>'),
-					id = this.name + ((values[y].val && typeof values[y].val.replace === 'function') ? values[y].val.replace(' ', '') : values[y].val);
-				li.append('<input type="checkbox" class="checker" data-value="' + values[y].val + '" id="' + id + '">');
+					id = this.name + ((valueItem.val && typeof valueItem.val.replace === 'function') ? valueItem.val.replace(' ', '') : valueItem.val);
+				li.append('<input type="checkbox" class="checker" data-value="' + valueItem.val + '" id="' + id + '">');
 				li.append('&nbsp;');
-				li.append('<label for="' + id + '">' + values[y].translated + '</label>');
+				li.append('<label for="' + id + '">' + valueItem.translated + '</label>');
 				ul.append(li);
 			}
 		} else if (this.type === 'date') {

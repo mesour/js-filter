@@ -143,15 +143,26 @@ export default class Filter
 				output = refData[reference][columnName];
 				return !output || (output instanceof Array && !output.length) ? null : output;
 			} else {
-				let reference = jQuery.parseJSON(reference);
+				let tableReference = jQuery.parseJSON(reference),
+					table = tableReference['table'],
+					pattern = tableReference['pattern'];
 
-				if (!refData[reference['table']]) {
+				if (!refData[table]) {
 					return null;
 				}
-				refData = refData[reference['table']];
-				for (let x = 0; x < refData.length; x++) {
-					let item = refData[x];
-					output.push(refData[x][reference['column']]);
+				let data = refData[table];
+				for (let x = 0; x < data.length; x++) {
+					let item = data[x],
+						value = window.mesour.parseValue(pattern, item),
+						id = item[tableReference['column']];
+					if (value) {
+						output.push({
+							id: id,
+							text: value
+						});
+					} else {
+						output.push(id);
+					}
 				}
 				return !output.length ? null : output;
 			}
